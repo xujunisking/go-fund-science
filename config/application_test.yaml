@@ -1,0 +1,36 @@
+Name: KYJJAppInterface
+DB:
+  Driver: mysql
+  DSN: "./test.db"
+HTTP:
+  Addr: ":8080"
+LogLevel: info
+DBConn:
+  Dbname:   "test_kyjj"
+  Host:     "127.0.0.1"
+  Port:     3306
+  UserName: "yn_kysb"
+  Password: "12345678"
+  Timeout:  "10s"
+Redis:
+  # 超时时间(单位：秒)
+  Timeout: 10
+  # 服务器地址
+  Host: 192.168.1.95
+  # 服务器端口
+  Port: 6379
+  # 数据库
+  Database: 6
+  # 密码
+  Password: Ynbys2@)@)
+  Pool:
+    # 最大空闲连接
+    MaxIdle: 20
+    # 最大连接数(默认8)
+    MaxActive: 100
+    # 最大空闲时间(单位：秒)
+    IdleTimeout: 300
+    # 设置为true，则客户端会等待;设置为false，则客户端会立即返回一个错误
+    Wait: true
+    # 连接最大生命周期(单位：秒)
+    MaxConnLifetime: 200

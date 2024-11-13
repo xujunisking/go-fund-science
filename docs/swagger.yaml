@@ -1,0 +1,134 @@
+basePath: /api/v1
+definitions:
+  models.ComPerson:
+    properties:
+      birthday:
+        type: string
+      cert_id:
+        type: string
+      created:
+        type: string
+      education:
+        type: string
+      email:
+        type: string
+      id:
+        description: ID      uuid.UUID  `gorm:"primarykey;column:id" form:"id" json:"id"`
+        type: string
+      mobile:
+        type: string
+      nation:
+        type: string
+      person_name:
+        type: string
+      person_state:
+        type: integer
+      remark:
+        type: string
+      sex:
+        type: string
+      spec:
+        type: string
+      title:
+        type: string
+      unit_id:
+        type: string
+      updated:
+        type: string
+    type: object
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api/
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: this is go-gin-gorm example.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /persons/GetPersonByCertID:
+    get:
+      consumes:
+      - application/json
+      description: 根据身份证号获取人员信息
+      parameters:
+      - description: certID
+        in: query
+        name: certID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ComPerson'
+        "400":
+          description: '{"msg": "error info"}'
+          schema:
+            type: string
+      summary: 显示人员信息
+      tags:
+      - Persons
+  /persons/GetPersonByID:
+    get:
+      consumes:
+      - application/json
+      description: 根据人员ID获取人员信息
+      parameters:
+      - description: ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ComPerson'
+        "400":
+          description: '{"msg": "error info"}'
+          schema:
+            type: string
+      summary: 显示人员信息
+      tags:
+      - Persons
+  /persons/GetPersonByPersonName:
+    get:
+      consumes:
+      - application/json
+      description: 根据人员姓名获取人员信息
+      parameters:
+      - description: personName
+        in: query
+        name: personName
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ComPerson'
+        "400":
+          description: '{"msg": "error info"}'
+          schema:
+            type: string
+      summary: 显示人员信息
+      tags:
+      - Persons
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
